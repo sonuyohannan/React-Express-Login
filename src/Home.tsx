@@ -1,9 +1,12 @@
 import React from "react";
+import {useLocation} from 'react-router-dom';
+
 
 function Home(){
+    const location = useLocation();
     return (
-        <div>
-            <h1>Welcome to the home page</h1>
+        <div className="home">
+            <h1>Hi {location.state} </h1>
 
         </div>
     );

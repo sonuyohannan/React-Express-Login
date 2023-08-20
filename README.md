@@ -1,3 +1,19 @@
+# A simple Login App using React + Typescript + Express 
+Demonstrating a simple login authentication(Not included security and encryptions) in React with express as backend. Here only showing
+the basic login without database. The values are hardcoded now , and checking user entered credential 
+against backend hardcoded values.
+
+1.clone the react project
+2.cd  my-login-page 
+3.npm run dev
+
+For run the server 
+
+1.cd login-api  ( In the same folder)
+2.node server.js
+
+
+
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
@@ -25,3 +41,7 @@ If you are developing a production application, we recommend updating the config
 - Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
 - Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
 - Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+
+
+
+

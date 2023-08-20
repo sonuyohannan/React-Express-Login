@@ -2,10 +2,13 @@ import {useState} from "react";
 import './App.css';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { useNavigate } from 'react-router';
+import './LoginPage.css';
 
-
+interface loginProps{
+    username:string;
+}
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-function LoginPage (){
+function LoginPage (props:loginProps){
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     // const navigate = useNavigate();
     const navigate = useNavigate();
@@ -39,8 +42,11 @@ function LoginPage (){
         });
         if(response.ok){
          const data =await response.json();
+
          console.log(data.message);
-         navigate('/home');
+   
+         
+         navigate('/home',{state:username});
          
          
 
@@ -58,23 +64,30 @@ function LoginPage (){
 
     
     return (
-        <div className="login-div">
+        <div className="container">
+
+       
+        <div className="form-container">
             <h1>
                 Login Page
             </h1>
-            <div>
+            <form>
                 <label htmlFor="username">Username:</label>
                 <input type="text" id="username" value={username} onChange={(e)=>
                  setUsername(e.target.value)}
 
-                 />
-            </div>
+                 /> 
+          
 
-            <div>
+           
                 <label htmlFor="password">Password</label>
                 <input type="password" id="password" value={password} onChange={(e)=>setPassword(e.target.value)}/>
-            </div>
+            
+               
+            </form>
             <button onClick={handleLogin}>Login</button>
+           
+        </div>
         </div>
     );
 }

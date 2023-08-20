@@ -16,7 +16,7 @@ function  App(){
   <React.StrictMode>
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<LoginPage />} />
+        <Route path="/" element={<LoginPage username={"sonu"} />} />
         <Route path="/home" element={<Home />} />
       </Routes>
     </BrowserRouter>
