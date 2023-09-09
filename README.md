@@ -1,11 +1,10 @@
-# A simple Login App using React + Typescript + Express 
-Demonstrating a simple login authentication(Not included security and encryptions) in React with express as backend. Here only showing
-the basic login without database. The values are hardcoded now , and checking user entered credential 
-against backend hardcoded values.
+# A simple Login App using React + Typescript + Express +MySql
+Demonstrating a simple login authentication(Not included security and encryptions) in React with express as backend and Mysql (database).
 
 1.clone the react project
 2.cd  my-login-page 
 3.npm run dev
+4.Create a db in mysql "login_db"
 
 For run the server 
 
