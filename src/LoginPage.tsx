@@ -11,26 +11,42 @@ interface loginProps{
 function LoginPage (props:loginProps){
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     // const navigate = useNavigate();
-    const navigate = useNavigate();
+    const navigate = useNavigate();  
 
     const[username,setUsername] =   useState('');
     const[password,setPassword] =   useState('');
 
-    const handleLogin =async ()=>{
-        // console.log("login with the username and  password",username,password);
+    const register =async ()=>{
+    console.log("inside the register");
+    
 
-        // //save username and password in handle login
-        // if(username=='admin' && password=='password'){
-        //     localStorage.setItem('username',username);
-        //     localStorage.setItem('password',password);
+        // Api 
+        const response =await fetch ('http://localhost:3001/api/register',{
+            method:'POST',
+            headers:{
+                'Content-Type':'application/json'
+            },
+            body:JSON.stringify({username,password})
 
-        //     //push to  home page
-        //     navigate('/home');
+        });
+        if(response.ok){
+         const data =await response.json();
+
+         console.log(data.message);
+         navigate('/home',{state:username});
+         
+   
+        }
+        else{
+            console.log('Regsiter failed');
+            alert("Register Failed - Feild empty");
             
-        // }else{
-        //     console.log('Username and  password required currently:', username,password);
-        // }
+        }
+    }
 
+    const handleLogin =async ()=>{
+
+        console.log("inside the login");
         // Api 
         const response =await fetch ('http://localhost:3001/api/login',{
             method:'POST',
@@ -40,6 +56,8 @@ function LoginPage (props:loginProps){
             body:JSON.stringify({username,password})
 
         });
+        console.log("Printing the response",response);
+        
         if(response.ok){
          const data =await response.json();
 
@@ -52,18 +70,15 @@ function LoginPage (props:loginProps){
 
         }
         else{
-            console.log('Login failed');
+            console.log('Login attempt failed');
+            alert("Login Failed");
             
         }
     }
 
         
  
-    
-    
-
-    
-    return (
+    return (  
         <div className="container">
 
        
@@ -86,6 +101,10 @@ function LoginPage (props:loginProps){
                
             </form>
             <button onClick={handleLogin}>Login</button>
+             <br />
+             <br />
+
+            <button onClick={register}>Regsiter</button>
            
         </div>
         </div>
